@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block title %}Bin Cases{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <h3>{{msg}}</h3>
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="mt-5">
+            <div class="mx-auto" style="width: 300px;">
+                <table class="table table-bordered">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>CASE NUMBER(s)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                {% for i in result %}
+                      <tr>
+                        <td>{{i}}</td>
+                      </tr>
+                    </tbody>
+                {% endfor %}
+                </table>
+            </div>
+        </div>
+        <p class="text-success">{{msg1}}</p>
+    </div>
+
+    <div class="col-md-6">
+        <div class="mt-5">
+            <form action="compare" method="post">
+                {% csrf_token %}
+                <div class="text-center">
+                    <button type="submit" formtarget="_blank" class="btn btn-success">CLICK ME if you have the previous list so I can show you the leaked cases.</button>
+                    <div class="mt-5">
+                        <p><h5>If not, then please note all the cases in NOTEPAD and repeat the process at shift end or tomorrow to get the information.</h5></p>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}Case Tracker{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <h1 class="display-4">Hi! Acronis. Here is the Case Tracker :)</h1>
+
+    <form action="track" method="post">
+
+        {% csrf_token %}
+    <div class="mt-5">
+        <div class="row">
+            <div class="col-md-12">
+                    <div class="form-group row">
+                        <label for="c1">
+                            <dl>
+                                <dt>Direction to use:</dt>
+                                <dd>- Go to your pending cases list and press <kbd>ctrl + A</kbd> so you can select the entire page; copy <kbd>ctrl + C</kbd> it and then paste <kbd>ctrl + V</kbd> it under the column below: </dd>
+                            </dl>
+                        </label>
+                      <textarea class="form-control" rows="8" name="c1" id="c1"></textarea>
+                    </div>
+            </div>
+        </div>
+    </div>
+
+        <div class="text-center">
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </form>
+    </div>
+{% endblock %}
+
