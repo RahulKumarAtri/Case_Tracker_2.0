@@ -15,10 +15,13 @@ def track(request):
 
     l = set(lst)
 
+    no_of_cases = len(l)
+
     my_context = {
         'result': l,
         'msg': 'Here are the cases in your bin:',
-        'msg1': '# NOTE: Please note down the above cases in NOTEPAD so you can use them at the next time to have the track of such cases.'
+        'msg1': '# NOTE: Please note down the above cases in NOTEPAD so you can use them at the next time to have the track of such cases.',
+        'msg2': no_of_cases
     }
 
     return render(request, 'cases/result.html', my_context)
@@ -57,7 +60,7 @@ def final(request):
             else:
                 my_context1 = {
                     'result': set(l1).difference(l),
-                    'msg': 'Here are the cases which are leaked:-'
+                    'msg': 'Here are the cases which are leaked(Moved/ Closed/ Open):-'
                 }
 
         if len(l) == len(l1):
